@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+rm -rf build
+mkdir build
+
+# fadeshow.js
+cp ../fadeshow/fadeshow.coffee build
+coffee -c -m build/fadeshow.coffee
+
+# test.html
+cp -r images build
+cp -r lib build
+cp main.js build
+jade -P < test.jade > build/test.html
+
